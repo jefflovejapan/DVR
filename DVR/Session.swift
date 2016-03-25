@@ -16,7 +16,9 @@ public class Session: NSURLSession {
     private var outstandingTasks = [NSURLSessionTask]()
     private var completedInteractions = [Interaction]()
     private var completionBlock: (Void -> Void)?
-
+    public override var delegate: NSURLSessionDelegate? {
+        return backingSession.delegate
+    }
 
     // MARK: - Initializers
 
